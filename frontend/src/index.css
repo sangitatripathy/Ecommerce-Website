@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  
+}
+
+@layer base {
+  @media (max-width: 640px) {
+    a.active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-toast {
+  animation: toast-progress 2s linear forwards;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
