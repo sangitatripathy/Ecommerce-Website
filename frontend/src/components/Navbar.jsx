@@ -7,7 +7,7 @@ import { ShopContext } from "../context/ShopContext";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
-  const {setShowSearchBar, getCartCount} = useContext(ShopContext)
+  const { setShowSearchBar, getCartCount } = useContext(ShopContext);
   const dropdownRef = useRef();
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -83,17 +83,23 @@ const Navbar = () => {
           </NavLink>
         </ul>
         <div className="flex flex-row gap-4 items-center">
-          <img onClick={()=>setShowSearchBar(true)} src={assets.search_icon} className="w-5 h-5" />
+          <img
+            onClick={() => setShowSearchBar(true)}
+            src={assets.search_icon}
+            className="w-5 h-5"
+          />
           <input
             type="text"
             className="hidden md:block border-2 px-2 py-1 rounded-lg"
           />
           <div className="group relative" ref={dropdownRef}>
-            <img
-              src={assets.profile_icon}
-              className="w-5 h-5 cursor-pointer"
-              onClick={() => setOpen(!open)}
-            />
+            <Link to={'/login'}>
+              <img
+                src={assets.profile_icon}
+                className="w-5 h-5 cursor-pointer"
+                onClick={() => setOpen(!open)}
+              />
+            </Link>
             {open && (
               <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg w-30 py-2 border">
                 <p className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
