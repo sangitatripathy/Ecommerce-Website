@@ -21,7 +21,7 @@ router.post(
   ]),
   addProduct,
 );
-router.get("/list", adminAuth, listProducts);
+router.get("/list", listProducts);
 router.get("/:id", singleProduct);
 router.delete("/:id", adminAuth, removeProduct);
 

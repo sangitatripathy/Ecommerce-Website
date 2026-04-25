@@ -36,7 +36,7 @@ export const addProduct = async (req, res) => {
       category: category.toLowerCase(),
       subCategory:subCategory.toLowerCase(),
       sizes: JSON.parse(sizes).map(s => s.toLowerCase()),
-      bestSeller: bestSeller === "true" ? true : false,
+      bestSeller: bestSeller === true || bestSeller === "true" ? true : false,
       image: imagesUrl,
       date: Date.now(),
     });
