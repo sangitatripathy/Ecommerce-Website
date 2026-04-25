@@ -8,10 +8,10 @@ const BestSeller = () => {
   const [bestSeller, setBestSeller] = useState([]);
 
   useEffect(() => {
-    const product = products.filter((item) => item.bestseller);
+    const product = products.filter((item) => item.bestSeller);
     setBestSeller(product.slice(0, 5));
-  }, []);
-
+  }, [products]);
+  
   return (
     <div className="w-[91%] my-10 mx-auto">
       <div className="text-center text-3xl">

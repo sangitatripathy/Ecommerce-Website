@@ -12,6 +12,10 @@ import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export const backendurl = import.meta.env.VITE_BACKEND_URL||'http://localhost:5000'
 
 const App = () => {
   return (
@@ -30,6 +34,7 @@ const App = () => {
         <Route path='/orders' element={<Orders/>}/>
       </Routes>
       <Footer/>
+      <ToastContainer />
     </div>
   )
 }

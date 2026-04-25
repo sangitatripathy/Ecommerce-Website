@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { assets } from "../assets/assets";
 import { NavLink, Link } from "react-router-dom";
-import { useState, useEffect, useRef, useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
-  const { setShowSearchBar, getCartCount } = useContext(ShopContext);
+  const {
+    setShowSearchBar,
+    getCartCount,
+    navigate,
+    token,
+    setToken,
+    setCartItems,
+  } = useContext(ShopContext);
+
   const dropdownRef = useRef();
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -20,6 +28,13 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const logout = () => {
+    navigate("/login");
+    localStorage.removeItem("token");
+    setToken("");
+    setCartItems({});
+  };
   return (
     <div>
       <div className="flex justify-between px-8 md:px-20 py-5 items-center">
@@ -93,22 +108,31 @@ const Navbar = () => {
             className="hidden md:block border-2 px-2 py-1 rounded-lg"
           />
           <div className="group relative" ref={dropdownRef}>
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <img
                 src={assets.profile_icon}
                 className="w-5 h-5 cursor-pointer"
-                onClick={() => setOpen(!open)}
+                onClick={() => {
+                  setOpen(!open);
+                  token ? null : navigate("/login");
+                }}
               />
             </Link>
-            {open && (
+            {open && token && (
               <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg w-30 py-2 border">
                 <p className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
                   Profile
                 </p>
-                <p className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
-                  Settings
+                <p
+                  className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => navigate("/orders")}
+                >
+                  Orders
                 </p>
-                <p className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-red-500">
+                <p
+                  onClick={logout}
+                  className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-red-500"
+                >
                   Logout
                 </p>
               </div>
