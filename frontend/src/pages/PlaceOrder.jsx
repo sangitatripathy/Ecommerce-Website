@@ -38,24 +38,55 @@ const PlaceOrder = () => {
     setFormData((data) => ({ ...data, [name]: value }));
   };
 
-  const initPay = (order) =>{
-    console.log(order.id)
+  const initPay = (order) => {
     const options = {
-    key: import.meta.env.VITE_RAZORPAY_API_KEY,
-    amount: order.amount,
-    currency: order.currency,
-    name: "Forever",
-    description: "Order Payment",
+      key: import.meta.env.VITE_RAZORPAY_API_KEY,
+      amount: order.amount,
+      currency: order.currency,
+      name: "Forever Store",
+      description: "Order Payment",
 
-    order_id: order.id,  
+      order_id: order.id,
+      prefill: {
+        name: formData.firstName + " " + formData.lastName,
+        email: formData.email,
+        contact: formData.phone || "9999999999",
+      },
+      theme: {
+        color: "#3399cc",
+      },
 
-    handler: function (response) {
-      console.log("Payment Success:", response);
-    }
+      handler: async function (res) {
+        console.log("Payment Success:", res);
+
+        try {
+          const verifyRes = await axios.post(
+            backendUrl + "/api/order/verifyRazorpay",
+            {
+              razorpay_order_id: res.razorpay_order_id,
+              razorpay_payment_id: res.razorpay_payment_id,
+              razorpay_signature: res.razorpay_signature,
+            },
+            { headers: { token } },
+          );
+
+          if (verifyRes.data.success) {
+            navigate("/orders");
+            setCartItems({});
+            toast.success("Payment Successful");
+          } else {
+            toast.error("Payment verification failed");
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error("Verification error");
+        }
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
-    const rzp = new window.Razorpay(options)
-    rzp.open()
-  }
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -124,10 +155,10 @@ const PlaceOrder = () => {
               { headers: { token } },
             );
 
-            if(responseRazorpay.data.success){
-              initPay({...responseRazorpay.data.razorpayOrder})
-              console.log(responseRazorpay.data.order)
-              console.log(responseRazorpay.data.razorpayOrder)
+            if (responseRazorpay.data.success) {
+              initPay(responseRazorpay.data.razorpayOrder);
+              console.log(responseRazorpay.data.order);
+              console.log(responseRazorpay.data.razorpayOrder);
             }
           }
           break;

@@ -2,6 +2,7 @@ import Order from "../models/order.model.js";
 import User from "../models/user.model.js";
 import Stripe from "stripe";
 import razorpay from "razorpay";
+import crypto from "crypto";
 
 const currency = "inr";
 const deliveryCharges = 10;
@@ -151,23 +152,63 @@ const placeOrderRazorpay = async (req, res) => {
     const options = {
       amount: amount * 100,
       currency: currency.toUpperCase(),
-      receipt: order._id.toString(),
+      receipt: order._id.toString(), // 🔥 IMPORTANT LINK
     };
 
-    await razorpayInstance.orders.create(
-      options,
-      async (err, orderResponse) => {
-        if (err) {
-          console.log(err);
-          return res.status(500).json({ success: false, message: err.message });
-        }
-        res.json({
-          success: true,
-          order,
-          razorpayOrder: orderResponse,
-        });
-      },
-    );
+    const orderResponse = await razorpayInstance.orders.create(options);
+
+    res.json({
+      success: true,
+      order,
+      razorpayOrder: orderResponse,
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const verifyRazorpay = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+    } = req.body;
+
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZORPAY_SECRET_KEY)
+      .update(body)
+      .digest("hex");
+
+    if (expectedSignature === razorpay_signature) {
+
+      const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
+
+      await Order.findByIdAndUpdate(orderInfo.receipt, {
+        payment: true,
+        status: "Paid",
+      });
+
+      await User.findByIdAndUpdate(userId, { cartData: {} });
+
+      res.json({
+        success: true,
+        message: "Payment successful",
+      });
+
+    } else {
+      res.json({ success: false, message: "Invalid signature" });
+    }
+
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -217,4 +258,5 @@ export {
   userOrders,
   updateStatus,
   verifyStripe,
+  verifyRazorpay
 };
