@@ -1,6 +1,6 @@
 # 🛒 Ecommerce Website
 
-[![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-Visit%20Website-1f6feb?style=for-the-badge&logo=vercel)](https://forever-backend-eight-red.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-Visit%20Website-1f6feb?style=for-the-badge&logo=vercel)](https://ecommerce-website-iota-gold.vercel.app)
 
 ## 🚀 Tech Stack
 
@@ -111,7 +111,7 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 - **Frontend & Admin**: Hosted on Vercel
 - **Backend**: Hosted on Vercel
 
-[**🔗 Visit Live Website**](https://forever-backend-eight-red.vercel.app)
+[**🔗 Visit Live Website**](https://ecommerce-website-iota-gold.vercel.app)
 
 ## 📝 License
 
