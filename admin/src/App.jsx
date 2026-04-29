@@ -8,7 +8,8 @@ import Orders from "./pages/Orders";
 import Login from "./components/Login";
 import { ToastContainer } from 'react-toastify';
 
-export const backendurl = import.meta.env.VITE_BACKEND_URL||'http://localhost:5000'
+export const backendurl = import.meta.env.VITE_BACKEND_URL||'http://localhost:5000';
+export const currency = '$'
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token')? localStorage.getItem('token'): '');
@@ -16,7 +17,7 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('token',token)
   },[token])
-
+  console.log(token)
   return (
     <div className="bg-gray-50 min-h-screen">
       <ToastContainer/>
