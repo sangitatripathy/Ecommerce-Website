@@ -1,39 +1,47 @@
 # 🛒 Ecommerce Website
 
-[![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-Visit%20Website-1f6feb?style=for-the-badge&logo=vercel)](https://ecommerce-website-iota-gold.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🔗%20VISIT%20LIVE%20WEBSITE-Visit%20Now-1f6feb?style=for-the-badge&logo=vercel&logoColor=white&logoWidth=20)](https://ecommerce-website-iota-gold.vercel.app)
 
 ## 🚀 Tech Stack
 
 ### Frontend
-![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
-![React Router](https://img.shields.io/badge/React%20Router-7.13-F44250?style=flat-square&logo=react-router&logoColor=white)
-![Axios](https://img.shields.io/badge/Axios-1.15-5A29E4?style=flat-square&logo=axios&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white&logoWidth=20" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-7.2-646CFF?style=for-the-badge&logo=vite&logoColor=white&logoWidth=20" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-4.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white&logoWidth=20" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/React%20Router-7.13-F44250?style=for-the-badge&logo=react-router&logoColor=white&logoWidth=20" alt="React Router" />
+  <img src="https://img.shields.io/badge/Axios-1.15-5A29E4?style=for-the-badge&logo=axios&logoColor=white&logoWidth=20" alt="Axios" />
+</p>
 
 ### Admin Dashboard
-![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.2-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white&logoWidth=20" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white&logoWidth=20" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-4.2-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white&logoWidth=20" alt="Tailwind CSS" />
+</p>
 
 ### Backend
-![Node.js](https://img.shields.io/badge/Node.js-Express%205.2-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-5.2-000000?style=flat-square&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%209.4-13AA52?style=flat-square&logo=mongodb&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/Node.js-20.x-339933?style=for-the-badge&logo=node.js&logoColor=white&logoWidth=20" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express-5.2-000000?style=for-the-badge&logo=express&logoColor=white&logoWidth=20" alt="Express" />
+  <img src="https://img.shields.io/badge/MongoDB-Mongoose%209.4-13AA52?style=for-the-badge&logo=mongodb&logoColor=white&logoWidth=20" alt="MongoDB" />
+</p>
 
 ### Integrations & Tools
-![Stripe](https://img.shields.io/badge/Stripe-Payment-635BFF?style=flat-square&logo=stripe&logoColor=white)
-![Razorpay](https://img.shields.io/badge/Razorpay-Payment-022E8A?style=flat-square&logo=razorpay&logoColor=white)
-![Cloudinary](https://img.shields.io/badge/Cloudinary-Image%20Management-3448C5?style=flat-square&logo=cloudinary&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-Authentication-000000?style=flat-square&logo=json-web-tokens&logoColor=white)
-![Bcrypt](https://img.shields.io/badge/Bcrypt-Security-2F7E31?style=flat-square&logo=&logoColor=white)
-![Multer](https://img.shields.io/badge/Multer-File%20Upload-FF6B6B?style=flat-square&logo=&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/Stripe-Payment-635BFF?style=for-the-badge&logo=stripe&logoColor=white&logoWidth=20" alt="Stripe" />
+  <img src="https://img.shields.io/badge/Razorpay-Payment-022E8A?style=for-the-badge&logo=razorpay&logoColor=white&logoWidth=20" alt="Razorpay" />
+  <img src="https://img.shields.io/badge/Cloudinary-Image%20Management-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white&logoWidth=20" alt="Cloudinary" />
+  <img src="https://img.shields.io/badge/JWT-Security-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white&logoWidth=20" alt="JWT" />
+  <img src="https://img.shields.io/badge/Bcrypt-Encryption-2F7E31?style=for-the-badge&logoColor=white&logoWidth=20" alt="Bcrypt" />
+  <img src="https://img.shields.io/badge/Multer-File%20Upload-FF6B6B?style=for-the-badge&logoColor=white&logoWidth=20" alt="Multer" />
+</p>
 
 ---
 
 ## 📋 Project Overview
 
-A modern, full-stack e-commerce platform with a responsive frontend, powerful admin dashboard, and secure backend API. Features include product management, user authentication, payment integration, and real-time order tracking.
+A modern, full-stack e-commerce platform with a responsive frontend, powerful admin dashboard, and secure backend API. Features include product management, user authentication, payment integration, image management, and comprehensive order tracking.
 
 ## 🎯 Features
 
